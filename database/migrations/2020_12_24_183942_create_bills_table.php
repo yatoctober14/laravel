@@ -17,6 +17,8 @@ class CreateBillsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
             $table->decimal('total_price');
+            $table->string('address');
+            $table->string('payment_details');
             $table->timestamps();
         });
     }
