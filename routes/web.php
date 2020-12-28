@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 
 Route::get('/about',[MainController::class, 'about'])->name('about');
@@ -27,6 +27,8 @@ Route::get('/about',[MainController::class, 'about'])->name('about');
 /** brands **/
 Route::get('/admin/brands',[BrandController::class, 'brands'])->name('brands');
 Route::post('/admin/add_brand',[BrandController::class, 'add_brand'])->name('add_brand');
+Route::get('/admin/edit_brand_page/{id}',[BrandController::class, 'edit_brand_page'])->name('edit_brand_page');
+Route::post('/admin/update_brand/{id}',[BrandController::class, 'update_brand'])->name('update_brand');
 
 
 /** users **/ 
