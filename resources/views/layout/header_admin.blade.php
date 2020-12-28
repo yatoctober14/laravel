@@ -168,9 +168,17 @@
 								<li class="menu-item">
 									<a href="../shop.html" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item">
-									<a href="category.html" class="link-term mercado-item-title">Categories</a>
-								</li>
+
+								@if(url()->current()==  route('categories'))
+									<li class="menu-item home-icon">
+										<a href="#" class="link-term mercado-item-title">Categories</a>
+									</li>
+								@else
+									<li class="menu-item">
+										<a href="{{route('categories')}}" class="link-term mercado-item-title">categories</a>
+									</li>
+								@endif
+
 								@if(url()->current()==  route('brands'))
 									<li class="menu-item home-icon">
 										<a href="#" class="link-term mercado-item-title">Brands</a>
@@ -180,9 +188,16 @@
 										<a href="{{route('brands')}}" class="link-term mercado-item-title">Brands</a>
 									</li>
 								@endif
-								<li class="menu-item">
-									<a href="product.html" class="link-term mercado-item-title">Products</a>
-								</li>
+								
+								@if(url()->current()==  route('products'))
+									<li class="menu-item home-icon">
+										<a href="#" class="link-term mercado-item-title">Products</a>	
+									</li>
+								@else
+									<li class="menu-item ">
+										<a href="{{route('products')}}" class="link-term mercado-item-title">Products</a>
+									</li>
+								@endif
 
 								@if(url()->current()==  route('users'))
 									<li class="menu-item home-icon">

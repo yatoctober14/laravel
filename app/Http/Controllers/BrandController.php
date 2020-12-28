@@ -18,7 +18,6 @@ class BrandController extends Controller
     public function add_brand(Request $request)
     {
     	$brand = new Brand();
-    	$user->specialize_id  = 0;
     	$brand->name_ar = $request->get('brand_name_arabic');
     	$brand->name_en = $request->get('brand_name_english');
     	$brand->save();
@@ -31,4 +30,21 @@ class BrandController extends Controller
     	$brand = Brand::find($brand_id);
     	return view('admin/brand',compact('brand','brands'));
     }
+
+    public function update_brand(Request $request,$brand_id)
+    {
+    	$brand = Brand::find($brand_id);
+    	$brand->name_ar = $request->get('brand_name_arabic');
+    	$brand->name_en = $request->get('brand_name_english');
+    	$brand->save();
+    	return redirect()->route('brands');
+    }
+
+    public function delete_brand($brand_id)
+    {
+    	$brand = Brand::find($brand_id);
+    	$brand->delete();
+    	return back();
+    }
+
 }

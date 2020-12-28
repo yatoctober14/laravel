@@ -68,8 +68,8 @@
 						  <td>{{$loop->iteration}}</td>
 						  <td>{{$brand->name_en}}</td>
 						  <td>{{$brand->name_ar}}</td>
-						  <td><a href="{{route('edit_brand_page',$brand->id)}}"><input class="bg-success" type="button" value="Edit" name="Edit"/></a></td>
-						  <td><input class="bg-danger" type="button" value="Delete" name="Delete"/></td>
+						  <td><a href="{{route('edit_brand_page',$brand->id)}}" class="btn btn-info">Edit</a></td>
+						  <td><a href="{{route('delete_brand',$brand->id)}}" class="btn btn-danger">Delete</a></td>
 					  </tr>
 					  @endforeach
 
