@@ -166,7 +166,7 @@
 									</li>
 								@endif
 								<li class="menu-item">
-									<a href="../shop.html" class="link-term mercado-item-title">Shop</a>
+									<a href="{{route('shop')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 
 								@if(url()->current()==  route('categories'))
@@ -196,6 +196,16 @@
 								@else
 									<li class="menu-item ">
 										<a href="{{route('products')}}" class="link-term mercado-item-title">Products</a>
+									</li>
+								@endif
+
+								@if(url()->current()==  route('colors'))
+									<li class="menu-item home-icon">
+										<a href="#" class="link-term mercado-item-title">Colors</a>	
+									</li>
+								@else
+									<li class="menu-item ">
+										<a href="{{route('colors')}}" class="link-term mercado-item-title">Colors</a>
 									</li>
 								@endif
 

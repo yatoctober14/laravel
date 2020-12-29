@@ -6,6 +6,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ColorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,13 @@ Route::get('/admin/edit_category_page/{id}',[CategoryController::class, 'edit_ca
 Route::post('/admin/update_category/{id}',[CategoryController::class, 'update_category'])->name('update_category');
 Route::get('/admin/delete_category/{id}',[CategoryController::class, 'delete_category'])->name('delete_category');
 
+/** colors **/
+Route::get('/admin/colors',[ColorController::class, 'colors'])->name('colors');
+Route::post('/admin/add_color',[ColorController::class, 'add_color'])->name('add_color');
+Route::get('/admin/edit_color_page/{id}',[ColorController::class, 'edit_color_page'])->name('edit_color_page');
+Route::post('/admin/update_color/{id}',[ColorController::class, 'update_color'])->name('update_color');
+Route::get('/admin/delete_color/{id}',[ColorController::class, 'delete_color'])->name('delete_color');
+
 
 /** products **/
 Route::get('/admin/products',[ProductController::class, 'products'])->name('products');
@@ -53,3 +61,7 @@ Route::get('/admin/users',[UserController::class, 'users'])->name('users');
 Route::get('/admin/admins',[UserController::class, 'admins'])->name('admins');
 
 
+
+
+Route::get('/shop',[ProductController::class, 'shop'])->name('shop');
+Route::get('/details/{id}',[ProductController::class, 'details'])->name('details');
