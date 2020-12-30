@@ -170,4 +170,14 @@ class ProductController extends Controller
 
         return view('shop',compact('products','brands','colors','categories','max_price','min_price','sizes','popular_products'));
     }
+
+    public function details($product_id)
+    {
+        $product = Product::find($product_id);
+        $popular_products = Product::orderBy('rating')->paginate(5);
+        $related_products = Product::where('category_id',$product->category_id)->where('brand_id',$product->brand_id)->paginate(5);
+
+
+        return view('details',compact('product','related_products','popular_products'));
+    }
 }

@@ -65,3 +65,8 @@ Route::get('/admin/admins',[UserController::class, 'admins'])->name('admins');
 
 Route::get('/shop',[ProductController::class, 'shop'])->name('shop');
 Route::get('/details/{id}',[ProductController::class, 'details'])->name('details');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
