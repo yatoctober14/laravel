@@ -9,19 +9,20 @@
     <div class="card">
     	@if(isset($color))
         	<div class="card-header"><h2>Update Color Form</h2></div>
-        @else
+      @else
         	<div class="card-header"><h2>Create Color Form</h2></div>
-        @endif
+      @endif
+        
         <div class="card-body card-block">
-        	@if(isset($color))
-            	<form action="{{route('update_color',$color->id)}}" method="post" class="">
-        	@else
-				<form action="{{route('add_color')}}" method="post" class="">
+      @if(isset($color))
+            <form action="{{route('update_color',$color->id)}}" method="post" class="">
+      @else
+				    <form action="{{route('add_color')}}" method="post" class="">
 			@endif
-            	@csrf
+          @csrf
                 <div class="form-group">
                     <div class="input-group">
-                    	@if(isset($color))
+            @if(isset($color))
 							<div class="input-group-addon">Update Color</div>
 						@else
 							<div class="input-group-addon">Create Color</div>
@@ -37,8 +38,8 @@
                 	@if(isset($color))
                     	<button type="submit" class="btn btn-primary btn-sm">Update</button>
                 	@else
-						<button type="submit" class="btn btn-primary btn-sm">submit</button>
-					@endif
+          					<button type="submit" class="btn btn-primary btn-sm">submit</button>
+          				@endif
                 </div>
             </form>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Brand;
+use Illuminate\Support\Facades\Validator;
 
 class BrandController extends Controller
 {
@@ -15,8 +16,17 @@ class BrandController extends Controller
     	return view('admin/brand',compact('brands'));
     }
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'brand_name_english' => ['required', 'string', 'max:255','regex:/^[a-zA-Z ]+$/u'],
+            'brand_name_arabic' => ['required', 'string', 'max:255','regex:/^[\p{Arabic} ]+$/u'],
+        ]);
+    }
     public function add_brand(Request $request)
     {
+        $this->validator($request->all())->validate();
+
     	$brand = new Brand();
     	$brand->name_ar = $request->get('brand_name_arabic');
     	$brand->name_en = $request->get('brand_name_english');
@@ -33,6 +43,8 @@ class BrandController extends Controller
 
     public function update_brand(Request $request,$brand_id)
     {
+        $this->validator($request->all())->validate();
+
     	$brand = Brand::find($brand_id);
     	$brand->name_ar = $request->get('brand_name_arabic');
     	$brand->name_en = $request->get('brand_name_english');

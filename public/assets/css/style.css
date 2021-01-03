@@ -725,11 +725,19 @@ li.menu-item .nav-label.sale-label::before{
 .primary{
 	position: relative;
 }
-.primary-nav-section .primary>.menu-item{
+[dir="rtl"] .primary-nav-section .primary>.menu-item
+{
+	display: block;
+	float: right;
+	position: static;
+}
+[dir="ltr"] .primary-nav-section .primary>.menu-item
+{
 	display: block;
 	float: left;
 	position: static;
 }
+
 .primary .menu-item.home-icon i{
 	font-size: 19px;
 	color: #ffffff;

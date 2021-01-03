@@ -26,8 +26,24 @@
 						@else
 							<div class="input-group-addon">Create Brand</div>
 						@endif
-						<input type="text" id="brand_name_english" name="brand_name_english" placeholder="brand_name_english" class="form-control" @if(isset($brand)) value="{{$brand->name_en}}" @endif>
-						<input type="text" id="brand_name_arabic" name="brand_name_arabic" placeholder="brand_name_arabic" class="form-control"  @if(isset($brand)) value="{{$brand->name_ar}}" @endif>
+            <div>
+              <input type="text" id="brand_name_english" name="brand_name_english" placeholder="brand_name_english" class="form-control" @if(isset($brand)) value="{{$brand->name_en}}" @else value="{{ old('brand_name_english') }}" @endif>
+              @error('brand_name_english')
+                  <span class="text-danger" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+
+            <div>
+              <input type="text" id="brand_name_arabic" name="brand_name_arabic" placeholder="brand_name_arabic" class="form-control"  @if(isset($brand)) value="{{$brand->name_ar}}" @else value="{{ old('brand_name_arabic') }}" @endif>
+              @error('brand_name_arabic')
+                  <span class="text-danger" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+						
 						<div class="input-group-addon">
                             <i class="fa fa-user"></i>
                         </div>

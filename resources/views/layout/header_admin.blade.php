@@ -44,8 +44,28 @@
 						</div>
 						<div class="topbar-menu right-menu">
 							<ul>
-								<li class="menu-item" ><a title="Register or Login" href="../login.html">Login</a></li>
-								<li class="menu-item" ><a title="Register or Login" href="../register.html">Register</a></li>
+								@if(!Auth::check())
+									<li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
+									<li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>
+								@else
+									<li class="nav-item dropdown">
+		                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+		                                    {{ Auth::user()->name_en }}
+		                                </a>
+
+		                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+		                                    <a class="dropdown-item" href="{{ route('logout') }}"
+		                                       onclick="event.preventDefault();
+		                                                     document.getElementById('logout-form').submit();">
+		                                        {{ __('Logout') }}
+		                                    </a>
+
+		                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+		                                        @csrf
+		                                    </form>
+		                                </div>
+		                            </li>
+								@endif
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >

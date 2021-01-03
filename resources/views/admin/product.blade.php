@@ -161,7 +161,7 @@
 						   <td>{{$product->brand->name_en}}</td>
 						   <td>{{$product->quantity}}</td>
 						   <td>{{$product->description_en}}</td>
-						   <td>{{$product->size}}</td>
+						   <td>{{$product->screen_size}}</td>
 
 						   <td>
 						   		@foreach($product->product_colors as $color)

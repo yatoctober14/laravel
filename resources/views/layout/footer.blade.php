@@ -226,7 +226,14 @@
 
   	<script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js')}}"></script>
   	<script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js')}}"></script>
-  	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    @if(app()->getLocale()=='en')
+  	   <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    @else
+      <script
+        src="https://cdn.rtlcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-B4D+9otHJ5PJZQbqWyDHJc6z6st5fX3r680CYa0Em9AUG6jqu5t473Y+1CTZQWZv"
+        crossorigin="anonymous"></script>
+    @endif
   	<script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
   	<script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
   	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>

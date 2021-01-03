@@ -15,7 +15,7 @@
         	@if(isset($category))
             	<form action="{{route('update_category',$category->id)}}" method="post" class="">
         	@else
-				<form action="{{route('add_category')}}" method="post" class="">
+				    <form action="{{route('add_category')}}" method="post" class="">
 			@endif
             	@csrf
                 <div class="form-group">
