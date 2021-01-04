@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,6 +67,12 @@ Route::middleware(['admin'])->prefix('/admin')->group(function ()
 
 });
 
+
+Route::middleware(['auth'])->prefix('/user')->group(function () 
+{	
+	Route::get('/add_cart/{id}',[CartController::class, 'add_cart'])->name('add_cart');
+	Route::get('/cart',[CartController::class, 'cart'])->name('cart');
+});
 
 Route::get('/shop',[ProductController::class, 'shop'])->name('shop');
 Route::get('/details/{id}',[ProductController::class, 'details'])->name('details');

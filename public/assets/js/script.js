@@ -31,6 +31,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		var url = $(this).attr("href");
 		var res = ajax("GET",url,[],true);
+		console.log(res);
 		if(res.success == "success")
 		{
 			swal(res.message, 
@@ -39,7 +40,6 @@ $(document).ready(function(){
 			  buttons: false,
 			  timer: 1500,
 			});
-			console.log(res.message);
 			$("#section-table").load(location.href+' #content-table');
 		}
 		
