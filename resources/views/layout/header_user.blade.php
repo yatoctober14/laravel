@@ -74,14 +74,14 @@
 								@endif
 								<li class="menu-item lang-menu menu-item-has-children parent">
 									@if(app()->getLocale()=='en') 
-										<a title="English" href="{{route('language','en')}}"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+										<a title="English" href="{{route('language','en')}}"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 										<ul class="submenu lang" >
-											<li class="menu-item" ><a title="Arabic" href="{{route('language','ar')}}"><span class="img label-before"><img src="assets/images/lang-ara.png" alt="lang-ara"></span>العربية</a></li>
+											<li class="menu-item" ><a title="Arabic" href="{{route('language','ar')}}"><span class="img label-before"><img src="{{asset('assets/images/lang-ara.png')}}" alt="lang-ara"></span>العربية</a></li>
 										</ul>
 									@else
-										 <a title="Arabic" href="{{route('language','ar')}}"><span class="img label-before"><img src="assets/images/lang-ara.png" alt="lang-en"></span>العربية<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+										 <a title="Arabic" href="{{route('language','ar')}}"><span class="img label-before"><img src="{{asset('assets/images/lang-ara.png')}}" alt="lang-en"></span>العربية<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 										<ul class="submenu lang" >
-											<li class="menu-item" ><a title="English" href="{{route('language','en')}}"><span class="img label-before"><img src="assets/images/lang-en.png" alt="lang-ara"></span>English</a></li>
+											<li class="menu-item" ><a title="English" href="{{route('language','en')}}"><span class="img label-before"><img src="{{asset('assets/images/lang-en.png')}}" alt="lang-ara"></span>English</a></li>
 										</ul>
 									@endif
 								</li>

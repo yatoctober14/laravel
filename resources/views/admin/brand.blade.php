@@ -64,35 +64,35 @@
 </div>
 
 
-<div class="row">
-      <div class="col-lg-12">
-          <!-- DATA TABLE-->
-          <div class="table-responsive m-b-40">
-			<table class="table table-borderless table-data3">
-				<thead>
-				  <tr>
-							  <th>#</th>
-							  <th>Name in English</th>
-							  <th>Name in Arabic</th>
-							  <th>Edit</th>
-							  <th>delete</th>
-				  </tr>
-				</thead>
-				<tbody>
-					  @foreach($brands as $brand)
-					  <tr>
-						  <td>{{$loop->iteration}}</td>
-						  <td>{{$brand->name_en}}</td>
-						  <td>{{$brand->name_ar}}</td>
-						  <td><a href="{{route('edit_brand_page',$brand->id)}}" class="btn btn-info">Edit</a></td>
-						  <td><a href="{{route('delete_brand',$brand->id)}}" class="btn btn-danger">Delete</a></td>
-					  </tr>
-					  @endforeach
+<div class="row" id="section-table">
+      <div class="col-lg-12" id="content-table">
+                <!-- DATA TABLE-->
+                <div class="table-responsive m-b-40">
+      			<table class="table table-borderless table-data3">
+      				<thead>
+      				  <tr>
+      							  <th>#</th>
+      							  <th>Name in English</th>
+      							  <th>Name in Arabic</th>
+      							  <th>Edit</th>
+      							  <th>delete</th>
+      				  </tr>
+      				</thead>
+      				<tbody>
+      					  @foreach($brands as $brand)
+      					  <tr>
+      						  <td>{{$loop->iteration}}</td>
+      						  <td>{{$brand->name_en}}</td>
+      						  <td>{{$brand->name_ar}}</td>
+      						  <td><a href="{{route('edit_brand_page',$brand->id)}}" class="btn btn-info ">Edit</a></td>
+      						  <td><a href="{{route('delete_brand',$brand->id)}}" class="btn btn-danger delete">Delete</a></td>
+      					  </tr>
+      					  @endforeach
 
 
-    			  </tbody>
-			</table>
-		</div>
+          			  </tbody>
+      			</table>
+      		</div>
           <!-- END DATA TABLE-->
       </div>
      </div>
@@ -100,4 +100,9 @@
 
 
 <hr><hr>
+@endsection
+
+@section('js')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="{{asset('assets/js/script.js')}}"></script>
 @endsection

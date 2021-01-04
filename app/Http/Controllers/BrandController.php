@@ -52,10 +52,14 @@ class BrandController extends Controller
     	return redirect()->route('brands');
     }
 
-    public function delete_brand($brand_id)
+    public function delete_brand(Request $request, $brand_id)
     {
     	$brand = Brand::find($brand_id);
     	$brand->delete();
+        if($request->ajax())
+        {
+            return response()->json(['success'=>'success', 'message'=> 'Deleted Successfully' ]);
+        }
     	return back();
     }
 
