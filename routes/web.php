@@ -19,10 +19,11 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
 
+Route::get('/',[MainController::class, 'index'])->name('index');
 
 Route::get('/about',[MainController::class, 'about'])->name('about');
 
