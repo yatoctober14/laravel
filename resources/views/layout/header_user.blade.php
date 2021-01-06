@@ -105,7 +105,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="assets/images/logo-top-1.png" width="50px" alt="Electronics Store"></a>
+							<a href="{{route('index')}}" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}" width="50px" alt="Electronics Store"></a>
 						</div>
 
 						<div class="wrap-search center-section">

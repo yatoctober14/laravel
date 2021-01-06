@@ -73,6 +73,8 @@ Route::middleware(['auth'])->prefix('/user')->group(function ()
 {	
 	Route::get('/add_cart/{id}',[CartController::class, 'add_cart'])->name('add_cart');
 	Route::get('/cart',[CartController::class, 'cart'])->name('cart');
+	Route::get('/checkout/',[CartController::class, 'checkout'])->name('checkout');
+	Route::post('/add_bill/',[CartController::class, 'add_bill'])->name('add_bill');
 });
 
 Route::get('/shop',[ProductController::class, 'shop'])->name('shop');
