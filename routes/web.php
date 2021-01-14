@@ -29,6 +29,9 @@ Route::get('/about',[MainController::class, 'about'])->name('about');
 
 Route::get('/language/{lang}',[MainController::class, 'language'])->name('language');
 
+Route::post('/search', [MainController::class , 'search'])->name('search');
+Route::get('/search', [MainController::class , 'search'])->name('search');
+
 
 Route::middleware(['admin'])->prefix('/admin')->group(function () 
 {

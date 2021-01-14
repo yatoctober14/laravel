@@ -123,12 +123,13 @@
 												</li>
 											</ol>
 										</div><!-- #comments -->
-
+										@if($authorized)
 										<div id="review_form_wrapper">
 											<div id="review_form">
 												<div id="respond" class="comment-respond">
 
 													<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+													@csrf	
 														<p class="comment-notes">
 															<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
 														</p>
@@ -148,14 +149,7 @@
 																<input type="radio" id="rated-5" name="rating" value="5" checked="checked">
 															</p>
 														</div>
-														<p class="comment-form-author">
-															<label for="author">Name <span class="required">*</span></label>
-															<input id="author" name="author" type="text" value="">
-														</p>
-														<p class="comment-form-email">
-															<label for="email">Email <span class="required">*</span></label>
-															<input id="email" name="email" type="email" value="" >
-														</p>
+														
 														<p class="comment-form-comment">
 															<label for="comment">Your review <span class="required">*</span>
 															</label>
@@ -169,7 +163,7 @@
 												</div><!-- .comment-respond-->
 											</div><!-- #review_form -->
 										</div><!-- #review_form_wrapper -->
-
+										@endif
 									</div>
 								</div>
 							</div>

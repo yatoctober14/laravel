@@ -10,6 +10,8 @@ use App\Models\Brand;
 use App\Models\ProductColor;
 use App\Models\Image;
 
+use Auth;
+
 class ProductController extends Controller
 {
     public function products()
@@ -177,7 +179,25 @@ class ProductController extends Controller
         $popular_products = Product::orderBy('rating')->paginate(5);
         $related_products = Product::where('category_id',$product->category_id)->where('brand_id',$product->brand_id)->paginate(5);
 
+        $authorized = false;
+        if(Auth::check())
+        {
+            foreach (Auth::user()->bills as $bill) 
+            {
+                foreach($bill->orders as $order)
+                {
+                    if($order->product_id == $product->id)
+                    {
+                        $authorized=true;
+                        break;
+                    }
+                }
 
-        return view('details',compact('product','related_products','popular_products'));
+            }
+
+        }
+
+
+        return view('details',compact('product','related_products','popular_products','authorized'));
     }
 }
